@@ -1,0 +1,4 @@
+{
+    "terminal.integrated.initialHintCopilotCli": true,
+    "github.copilot.chat.agent.autoFix": false
+}

@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "han-serif";
+  src: url("../../../assets/font/han-serif/font.eot"); /* IE9 */
+  src: url("../../../assets/font/han-serif/font.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+
+  url("../../../assets/font/han-serif/font.woff") format("woff"), /* chrome、firefox */
+  url("../../../assets/font/han-serif/font.ttf") format("truetype"); /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+}
+
+.han-serif {
+  font-family: "han-serif" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+

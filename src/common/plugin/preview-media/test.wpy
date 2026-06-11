@@ -1,0 +1,191 @@
+<template>
+    <view class="m-move-scroll-area" style="{{areaStyle}}" @touchstart="touchStart" @touchmove.prevent.stop="touchMove"
+          @touchend="touchEnd">
+        <view class="m-move-scroll-view" id="movableView" style="{{moveStyle}}">
+            <slot></slot>
+        </view>
+    </view>
+</template>
+<script>
+import wepy from 'wepy';
+import runtime from 'comm/runtime';
+
+export default class MoveScroll extends wepy.component {
+
+    data = {
+        areaStyle: '',
+        scale: runtime.getPhoneDev().isPhone ? 0.6 : 0.8,
+        moveX: 0,
+        moveY: 0,
+        ani: false
+    };
+
+    opts = {
+        moveX1: 0,
+        moveX2: 0,
+        moveY1: 0,
+        moveY2: 0,
+        endX1: 0,
+        endX2: 0,
+        endY1: 0,
+        endY2: 0,
+        startScale: 0,
+        endScale: 0,
+        lastScale: 1,
+        lastMoveX: 0,
+        lastMoveY: 0,
+        initMoveX: 0,
+        initMoveY: 0,
+        initCenterMoveY: 0,
+        timeStamp: 0,
+        isTwo: false,
+        moveStyle: '',
+        width: 100,
+        areaWidth: 100,
+        height: 100,
+        areaHeight: 100,
+        isPhone: runtime.getPhoneDev().isPhone
+    };
+
+    computed = {
+        moveStyle() {
+            return `${this.ani ? 'transition:transform 0.3s;' : ''}transform: scale(${this.scale}) translate3D(${Math.round(this.moveX / this.scale)}px, ${Math.round(this.moveY / this.scale)}px, 0);${this.opts.moveStyle}`;
+        }
+    };
+
+    startMove() {
+        this.ani = true;
+        this.opts.lastScale = this.scale;
+        this.opts.lastMoveX = this.moveX;
+        this.opts.lastMoveY = this.moveY;
+        this.$emit('change', {
+            scale: this.scale,
+            moveX: this.moveX,
+            moveY: this.moveY
+        });
+        setTimeout(() => {
+            this.ani = false;
+            this.$apply();
+        }, 300);
+    }
+
+    methods = {
+        initMove() {
+            this.moveX = this.opts.initMoveX;
+            this.moveY = this.opts.initMoveY;
+            this.scale = this.opts.isPhone ? 0.6 : 0.8;
+            this.startMove();
+        },
+        moveView(opt) {
+            const left = opt.left - this.opts.width / 2;
+            const top = opt.top - this.opts.height / 2;
+            this.moveX = this.opts.initMoveX - left * this.scale;
+            this.moveY = this.opts.initCenterMoveY - top * this.scale;
+            this.startMove();
+        },
+        changeData(opt) {
+            this.areaStyle = opt.areaStyle;
+            this.moveX = opt.moveX;
+            this.moveY = opt.moveY;
+            this.scale = this.opts.isPhone ? 0.6 : 0.8;
+            this.areaStyle = `width: ${opt.areaWidth}px; height: ${opt.areaHeight}px;`;
+            this.opts.moveStyle = `width:${opt.width}px; height:${opt.height}px;`;
+            this.opts.width = opt.width;
+            this.opts.height = opt.height;
+            this.opts.areaWidth = opt.areaWidth;
+            this.opts.areaHeight = opt.areaHeight;
+            this.opts.initMoveX = opt.moveX;
+            this.opts.initMoveY = opt.moveY;
+            this.opts.initCenterMoveY = opt.initMoveY;
+            this.startMove();
+        },
+        touchStart(ev) {
+            const op = this.opts;
+            op.moveX1 = ev.touches[0].pageX;
+            op.moveY1 = ev.touches[0].pageY;
+            if (ev.touches.length > 1) {//多指
+                op.moveX2 = ev.touches[1].pageX;
+                op.moveY2 = ev.touches[1].pageY;
+                op.startScale = Math.sqrt(Math.pow(op.moveX2 - op.moveX1, 2) + Math.pow(op.moveY2 - op.moveY1, 2));
+            } else if (ev.touches.length === 1) {
+                op.timeStamp = ev.timeStamp;
+            }
+        },
+        touchMove(ev) {
+            const op = this.opts;
+            op.endX1 = ev.touches[0].pageX;
+            op.endY1 = ev.touches[0].pageY;
+            if (ev.touches.length > 1) {//多指
+                op.isTwo = true;
+                op.endX2 = ev.touches[1].pageX;
+                op.endY2 = ev.touches[1].pageY;
+                op.endScale = Math.sqrt(Math.pow(op.endX2 - op.endX1, 2) + Math.pow(op.endY2 - op.endY1, 2));
+                this.scale = op.lastScale + (op.endScale - op.startScale) / 200;
+                this.scale = Math.min(3, Math.max(0.3, this.scale));
+            } else if (!op.isTwo && ev.touches.length === 1) {
+                const minLeft = -(op.width * (1 - this.scale) * 0.5 + op.width * this.scale) + 60 * this.scale;
+                const maxRight = op.areaWidth - op.width * (1 - this.scale) * 0.5 - 80 * this.scale;
+                const minTop = -(op.height * (1 - this.scale) * 0.5 + op.height * this.scale) + 60 * this.scale;
+                const maxBottom = op.areaHeight - op.height * (1 - this.scale) * 0.5 - 80 * this.scale;
+                this.moveX = Math.max(Math.min(op.lastMoveX + op.endX1 - op.moveX1, maxRight), minLeft);
+                this.moveY = Math.max(Math.min(op.lastMoveY + op.endY1 - op.moveY1, maxBottom), minTop);
+            }
+            if (op.isPhone) {
+                this.$emit('change', {
+                    scale: this.scale,
+                    moveX: this.moveX,
+                    moveY: this.moveY
+                });
+            }
+        },
+        touchEnd(ev) {
+            const op = this.opts;
+            setTimeout(() => {
+                op.isTwo = false;
+            }, 50);
+            this.scale = Math.min(1, Math.max(0.5, this.scale));
+            op.lastScale = this.scale;
+            op.lastMoveX = this.moveX;
+            op.lastMoveY = this.moveY;
+            this.$emit('change', {
+                scale: this.scale,
+                moveX: this.moveX,
+                moveY: this.moveY
+            });
+            if (op.timeStamp !== 0) {
+                const mod = ev.timeStamp - op.timeStamp;
+                const pageX = ev.changedTouches[0].pageX;
+                const pageY = ev.changedTouches[0].pageY;
+                const x = Math.abs(op.moveX1 - pageX) < 5;
+                const y = Math.abs(op.moveY1 - pageY) < 5;
+                op.timeStamp = 0;
+                op.moveX1 = 0;
+                op.moveY1 = 0;
+                if (mod < 200 && x && y) {
+                    this.$emit('select', {
+                        pageX: pageX,
+                        pageY: pageY
+                    });
+                }
+            }
+        }
+    };
+}
+</script>
+<style lang="scss">
+@import "../style/static";
+
+.m-move-scroll-area {
+    width: 100vw;
+    height: 100vw;
+    overflow: hidden;
+}
+
+.m-move-scroll-view {
+    width: 50%;
+    height: 50%;
+    @include transform-origin(center);
+    position: relative;
+}
+
+</style>

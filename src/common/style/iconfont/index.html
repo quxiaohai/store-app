@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>svgtofont</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+   
+  <meta name="description" content="Converts SVG fonts to TTF/EOT/WOFF/WOFF2/SVG format.">
+   
+  <meta name="keywords" content="svgtofont,TTF,EOT,WOFF,WOFF2,SVG">
+  
+  
+  
+  <link rel="stylesheet" href="icon.css" />
+  
+  <style>
+    *{margin: 0;padding: 0;list-style: none;}
+    body { color: #696969; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; }
+    a { color: #333; text-decoration: underline; }
+    a:hover { color: rgb(9, 73, 209); }
+    .header { color: #333; text-align: center; padding: 80px 0 60px 0; min-height: 153px; font-size: 14px; }
+    .header .logo svg { height: 120px; width: 120px; }
+    .header h1 { font-size: 42px; padding: 26px 0 10px 0; }
+    .header sup {font-size: 14px; margin: 8px 0 0 8px; position: absolute; color: #7b7b7b; }
+    .info {
+      color: #999;
+      font-weight: normal;
+      max-width: 346px;
+      margin: 0 auto;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+
+    .icons { max-width: 1190px; margin: 0 auto; }
+    .icons ul { text-align: center; }
+    .icons ul li {
+      vertical-align: top;
+      width: 120px;
+      display: inline-block;
+      text-align: center;
+      background-color: rgba(0,0,0,.02);
+      border-radius: 3px;
+      padding: 29px 0 10px 0;
+      margin-right: 10px;
+      margin-top: 10px;
+      transition: all 0.6s ease;
+    }
+    .icons ul li:hover { background-color: rgba(0,0,0,.06); }
+    .icons ul li:hover span { color: #3c75e4; opacity: 1; }
+    .icons ul li .unicode { color: #8c8c8c; opacity: 0.3; }
+    .icons ul li h4 {
+      font-weight: normal;
+      padding: 10px 0 5px 0;
+      display: block;
+      color: #8c8c8c;
+      font-size: 14px;
+      line-height: 12px;
+      opacity: 0.8;
+    }
+    .icons ul li:hover h4 { opacity: 1; }
+    .icons ul li svg { width: 24px; height: 24px; }
+    .icons ul li:hover { color: #3c75e4; }
+    .footer { text-align: center; padding: 10px 0 90px 0; }
+    .footer a { text-align: center; padding: 10px 0 90px 0; color: #696969;}
+    .footer a:hover { color: #0949d1; }
+    .links { text-align: center; padding: 50px 0 0 0; font-size: 14px; }
+    
+    .icons ul li.class-icon { font-size: 21px; line-height: 21px; padding-bottom: 20px; }
+    .icons ul li.class-icon p{ font-size: 12px; }
+    .icons ul li.class-icon [class^="icon-"]{ font-size: 26px; }
+    
+    
+    
+  </style>
+  
+  <style>
+    .github-corner:hover .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+    .github-corner svg { position: fixed; z-index: 999; border: 0px; top: 0px; right: 0px;}
+    @keyframes octocat-wave{
+      0%, 100% { transform: rotate(0); }
+      20%, 60% { transform: rotate(-25deg); }
+      40%, 80% { transform: rotate(10deg); }
+    }
+    @media (max-width:500px){
+      .github-corner:hover .octo-arm { animation: none; }
+      .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+    }
+  </style>
+  
+</head>
+
+<body>
+  
+    <a href="https://github.com/jaywcjlove/svgtofont" target="__blank" class="github-corner">
+      <svg width="62" height="62" viewBox="0 0 250 250" aria-hidden="true" style="fill: #dc3545; color: rgb(255, 255, 255); ">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" class="octo-arm" style="transform-origin: 130px 106px;"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+  
+  <div class="header">
+    
+    <div class="logo">
+      <a href="./">/Users/nawal/Documents/code/narwal-mall-activity/svg/git.svg</a>
+    </div>
+    
+    <h1>svgtofont<sup>1.0.0</sup></h1>
+    <div class="info">
+      Converts SVG fonts to TTF/EOT/WOFF/WOFF2/SVG format.
+    </div>
+    <p>
+      
+      <a href="https://github.com/jaywcjlove/svgtofont">GitHub</a> · 
+      
+      <a href="https://github.com/jaywcjlove/svgtofont/issues">Feedback</a> · 
+      
+      <a href="index.html">Font Class</a> · 
+      
+      <a href="unicode.html">Unicode</a>
+      
+    </p>
+  </div>
+  <div class="icons">
+    <ul>
+      <li class="class-icon"><i class="icon-add"></i><p class="name">add</p></li><li class="class-icon"><i class="icon-after-sales"></i><p class="name">after-sales</p></li><li class="class-icon"><i class="icon-applet"></i><p class="name">applet</p></li><li class="class-icon"><i class="icon-aptitude"></i><p class="name">aptitude</p></li><li class="class-icon"><i class="icon-arrow-down"></i><p class="name">arrow-down</p></li><li class="class-icon"><i class="icon-arrow-left"></i><p class="name">arrow-left</p></li><li class="class-icon"><i class="icon-arrow-right"></i><p class="name">arrow-right</p></li><li class="class-icon"><i class="icon-arrow-solid-down"></i><p class="name">arrow-solid-down</p></li><li class="class-icon"><i class="icon-arrow-solid-right"></i><p class="name">arrow-solid-right</p></li><li class="class-icon"><i class="icon-arrow-top"></i><p class="name">arrow-top</p></li><li class="class-icon"><i class="icon-back"></i><p class="name">back</p></li><li class="class-icon"><i class="icon-bar-code"></i><p class="name">bar-code</p></li><li class="class-icon"><i class="icon-bulge-full"></i><p class="name">bulge-full</p></li><li class="class-icon"><i class="icon-bulge-line"></i><p class="name">bulge-line</p></li><li class="class-icon"><i class="icon-bulge-solid"></i><p class="name">bulge-solid</p></li><li class="class-icon"><i class="icon-bulge"></i><p class="name">bulge</p></li><li class="class-icon"><i class="icon-calendar"></i><p class="name">calendar</p></li><li class="class-icon"><i class="icon-camera-simple"></i><p class="name">camera-simple</p></li><li class="class-icon"><i class="icon-camera"></i><p class="name">camera</p></li><li class="class-icon"><i class="icon-cancel"></i><p class="name">cancel</p></li><li class="class-icon"><i class="icon-careful"></i><p class="name">careful</p></li><li class="class-icon"><i class="icon-chat"></i><p class="name">chat</p></li><li class="class-icon"><i class="icon-checkbox-checked"></i><p class="name">checkbox-checked</p></li><li class="class-icon"><i class="icon-checkbox"></i><p class="name">checkbox</p></li><li class="class-icon"><i class="icon-circle-check"></i><p class="name">circle-check</p></li><li class="class-icon"><i class="icon-circle-nocheck"></i><p class="name">circle-nocheck</p></li><li class="class-icon"><i class="icon-circle-pause"></i><p class="name">circle-pause</p></li><li class="class-icon"><i class="icon-circle-play"></i><p class="name">circle-play</p></li><li class="class-icon"><i class="icon-circle-share"></i><p class="name">circle-share</p></li><li class="class-icon"><i class="icon-circle-success-plain"></i><p class="name">circle-success-plain</p></li><li class="class-icon"><i class="icon-circle-success"></i><p class="name">circle-success</p></li><li class="class-icon"><i class="icon-close-full"></i><p class="name">close-full</p></li><li class="class-icon"><i class="icon-close"></i><p class="name">close</p></li><li class="class-icon"><i class="icon-collected"></i><p class="name">collected</p></li><li class="class-icon"><i class="icon-comment-full"></i><p class="name">comment-full</p></li><li class="class-icon"><i class="icon-comment-noyet"></i><p class="name">comment-noyet</p></li><li class="class-icon"><i class="icon-comment"></i><p class="name">comment</p></li><li class="class-icon"><i class="icon-complain"></i><p class="name">complain</p></li><li class="class-icon"><i class="icon-copy"></i><p class="name">copy</p></li><li class="class-icon"><i class="icon-cost"></i><p class="name">cost</p></li><li class="class-icon"><i class="icon-coupon-dark"></i><p class="name">coupon-dark</p></li><li class="class-icon"><i class="icon-coupon"></i><p class="name">coupon</p></li><li class="class-icon"><i class="icon-custom-service"></i><p class="name">custom-service</p></li><li class="class-icon"><i class="icon-delete"></i><p class="name">delete</p></li><li class="class-icon"><i class="icon-delivering"></i><p class="name">delivering</p></li><li class="class-icon"><i class="icon-door-pros"></i><p class="name">door-pros</p></li><li class="class-icon"><i class="icon-download"></i><p class="name">download</p></li><li class="class-icon"><i class="icon-edit"></i><p class="name">edit</p></li><li class="class-icon"><i class="icon-face"></i><p class="name">face</p></li><li class="class-icon"><i class="icon-failed"></i><p class="name">failed</p></li><li class="class-icon"><i class="icon-feedback"></i><p class="name">feedback</p></li><li class="class-icon"><i class="icon-file-upload"></i><p class="name">file-upload</p></li><li class="class-icon"><i class="icon-forward"></i><p class="name">forward</p></li><li class="class-icon"><i class="icon-freo"></i><p class="name">freo</p></li><li class="class-icon"><i class="icon-friends"></i><p class="name">friends</p></li><li class="class-icon"><i class="icon-gift"></i><p class="name">gift</p></li><li class="class-icon"><i class="icon-good-checked"></i><p class="name">good-checked</p></li><li class="class-icon"><i class="icon-good"></i><p class="name">good</p></li><li class="class-icon"><i class="icon-heart-full"></i><p class="name">heart-full</p></li><li class="class-icon"><i class="icon-heart"></i><p class="name">heart</p></li><li class="class-icon"><i class="icon-help-center"></i><p class="name">help-center</p></li><li class="class-icon"><i class="icon-history"></i><p class="name">history</p></li><li class="class-icon"><i class="icon-home-checked"></i><p class="name">home-checked</p></li><li class="class-icon"><i class="icon-home"></i><p class="name">home</p></li><li class="class-icon"><i class="icon-hook"></i><p class="name">hook</p></li><li class="class-icon"><i class="icon-install"></i><p class="name">install</p></li><li class="class-icon"><i class="icon-installation"></i><p class="name">installation</p></li><li class="class-icon"><i class="icon-light"></i><p class="name">light</p></li><li class="class-icon"><i class="icon-like-full"></i><p class="name">like-full</p></li><li class="class-icon"><i class="icon-like"></i><p class="name">like</p></li><li class="class-icon"><i class="icon-loading"></i><p class="name">loading</p></li><li class="class-icon"><i class="icon-location-full"></i><p class="name">location-full</p></li><li class="class-icon"><i class="icon-location"></i><p class="name">location</p></li><li class="class-icon"><i class="icon-lock"></i><p class="name">lock</p></li><li class="class-icon"><i class="icon-maintain"></i><p class="name">maintain</p></li><li class="class-icon"><i class="icon-mall-share"></i><p class="name">mall-share</p></li><li class="class-icon"><i class="icon-mark-full"></i><p class="name">mark-full</p></li><li class="class-icon"><i class="icon-mark"></i><p class="name">mark</p></li><li class="class-icon"><i class="icon-message"></i><p class="name">message</p></li><li class="class-icon"><i class="icon-min-pause"></i><p class="name">min-pause</p></li><li class="class-icon"><i class="icon-min-play"></i><p class="name">min-play</p></li><li class="class-icon"><i class="icon-minus"></i><p class="name">minus</p></li><li class="class-icon"><i class="icon-newon"></i><p class="name">newon</p></li><li class="class-icon"><i class="icon-notice-circle"></i><p class="name">notice-circle</p></li><li class="class-icon"><i class="icon-notice"></i><p class="name">notice</p></li><li class="class-icon"><i class="icon-ocr"></i><p class="name">ocr</p></li><li class="class-icon"><i class="icon-order-search"></i><p class="name">order-search</p></li><li class="class-icon"><i class="icon-order"></i><p class="name">order</p></li><li class="class-icon"><i class="icon-pay-noyet"></i><p class="name">pay-noyet</p></li><li class="class-icon"><i class="icon-pen"></i><p class="name">pen</p></li><li class="class-icon"><i class="icon-phone"></i><p class="name">phone</p></li><li class="class-icon"><i class="icon-play"></i><p class="name">play</p></li><li class="class-icon"><i class="icon-policy"></i><p class="name">policy</p></li><li class="class-icon"><i class="icon-present"></i><p class="name">present</p></li><li class="class-icon"><i class="icon-product"></i><p class="name">product</p></li><li class="class-icon"><i class="icon-progress"></i><p class="name">progress</p></li><li class="class-icon"><i class="icon-qr-code"></i><p class="name">qr-code</p></li><li class="class-icon"><i class="icon-question"></i><p class="name">question</p></li><li class="class-icon"><i class="icon-receipt-noyet"></i><p class="name">receipt-noyet</p></li><li class="class-icon"><i class="icon-record"></i><p class="name">record</p></li><li class="class-icon"><i class="icon-rect-check"></i><p class="name">rect-check</p></li><li class="class-icon"><i class="icon-rect-nocheck"></i><p class="name">rect-nocheck</p></li><li class="class-icon"><i class="icon-refund-amount"></i><p class="name">refund-amount</p></li><li class="class-icon"><i class="icon-refund-exchange"></i><p class="name">refund-exchange</p></li><li class="class-icon"><i class="icon-refund-only-amount"></i><p class="name">refund-only-amount</p></li><li class="class-icon"><i class="icon-remould"></i><p class="name">remould</p></li><li class="class-icon"><i class="icon-repair"></i><p class="name">repair</p></li><li class="class-icon"><i class="icon-report"></i><p class="name">report</p></li><li class="class-icon"><i class="icon-round-full"></i><p class="name">round-full</p></li><li class="class-icon"><i class="icon-round"></i><p class="name">round</p></li><li class="class-icon"><i class="icon-scan-bar"></i><p class="name">scan-bar</p></li><li class="class-icon"><i class="icon-scan"></i><p class="name">scan</p></li><li class="class-icon"><i class="icon-scope"></i><p class="name">scope</p></li><li class="class-icon"><i class="icon-search"></i><p class="name">search</p></li><li class="class-icon"><i class="icon-service-center"></i><p class="name">service-center</p></li><li class="class-icon"><i class="icon-setting-full"></i><p class="name">setting-full</p></li><li class="class-icon"><i class="icon-setting"></i><p class="name">setting</p></li><li class="class-icon"><i class="icon-share"></i><p class="name">share</p></li><li class="class-icon"><i class="icon-shipped"></i><p class="name">shipped</p></li><li class="class-icon"><i class="icon-shipping-noyet"></i><p class="name">shipping-noyet</p></li><li class="class-icon"><i class="icon-shopping-cart-checked"></i><p class="name">shopping-cart-checked</p></li><li class="class-icon"><i class="icon-shopping-cart-empty"></i><p class="name">shopping-cart-empty</p></li><li class="class-icon"><i class="icon-shopping-cart"></i><p class="name">shopping-cart</p></li><li class="class-icon"><i class="icon-simple-down"></i><p class="name">simple-down</p></li><li class="class-icon"><i class="icon-sort"></i><p class="name">sort</p></li><li class="class-icon"><i class="icon-star-full"></i><p class="name">star-full</p></li><li class="class-icon"><i class="icon-star-half"></i><p class="name">star-half</p></li><li class="class-icon"><i class="icon-star"></i><p class="name">star</p></li><li class="class-icon"><i class="icon-style"></i><p class="name">style</p></li><li class="class-icon"><i class="icon-tag"></i><p class="name">tag</p></li><li class="class-icon"><i class="icon-teaching"></i><p class="name">teaching</p></li><li class="class-icon"><i class="icon-teletext"></i><p class="name">teletext</p></li><li class="class-icon"><i class="icon-time"></i><p class="name">time</p></li><li class="class-icon"><i class="icon-timer"></i><p class="name">timer</p></li><li class="class-icon"><i class="icon-timing"></i><p class="name">timing</p></li><li class="class-icon"><i class="icon-trial"></i><p class="name">trial</p></li><li class="class-icon"><i class="icon-upload"></i><p class="name">upload</p></li><li class="class-icon"><i class="icon-user-add"></i><p class="name">user-add</p></li><li class="class-icon"><i class="icon-user-checked"></i><p class="name">user-checked</p></li><li class="class-icon"><i class="icon-user"></i><p class="name">user</p></li><li class="class-icon"><i class="icon-verify"></i><p class="name">verify</p></li><li class="class-icon"><i class="icon-view-close"></i><p class="name">view-close</p></li><li class="class-icon"><i class="icon-view"></i><p class="name">view</p></li><li class="class-icon"><i class="icon-voice-none"></i><p class="name">voice-none</p></li><li class="class-icon"><i class="icon-voice"></i><p class="name">voice</p></li><li class="class-icon"><i class="icon-warn-notice"></i><p class="name">warn-notice</p></li><li class="class-icon"><i class="icon-warn"></i><p class="name">warn</p></li><li class="class-icon"><i class="icon-wechat"></i><p class="name">wechat</p></li>
+    </ul>
+  </div>
+  <p class="links">
+    
+    <a href="https://github.com/jaywcjlove/svgtofont">GitHub</a> · 
+    
+    <a href="https://github.com/jaywcjlove/svgtofont/issues">Feedback</a> · 
+    
+    <a href="index.html">Font Class</a> · 
+    
+    <a href="unicode.html">Unicode</a>
+    
+  </p>
+  <div class="footer">
+    Licensed under MIT. (Yes it's free and <a href="https://github.com/jaywcjlove/svgtofont">open-sourced</a>
+    <div><a target="_blank" href="https://github.com/jaywcjlove/svgtofont">Created By svgtofont</a></div>
+  </div>
+</body>
+
+</html>

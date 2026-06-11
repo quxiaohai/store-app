@@ -1,0 +1,141 @@
+@use "sass:math";
+
+//随机数字
+@function parse-random($value) {
+  @return round(random() * $value);
+}
+
+$randomId: parse-random(1000000);
+
+$spriteSrc: '../../../assets/images/sprites/sprite.png?v=#{$randomId}';
+$dpr: 3;
+
+$spriteWidth: 312px;
+$spriteHeight: 288px;
+$add: 0px 0px 72px 72px;
+$browsing: -80px 0px 72px 72px;
+$feedback: 0px -80px 72px 72px;
+$message: -80px -80px 72px 72px;
+$night: -160px 0px 72px 72px;
+$praise: -160px -80px 72px 72px;
+$preference: 0px -160px 72px 72px;
+$radio-opacity: -80px -160px 72px 72px;
+$radio-selected: -160px -160px 72px 72px;
+$radio-small-selected: -240px -160px 48px 48px;
+$radio-small: 0px -240px 48px 48px;
+$radio: -240px 0px 72px 72px;
+$update: -240px -80px 72px 72px;
+
+@function strip-units($number) {
+  @return math.div($number, ($number * 0 + 1));
+}
+
+@function format-zero($number) {
+  @if $number == 0 {
+    @return 1;
+  } @else {
+    @return $number;
+  }
+}
+
+@mixin sprite-width($sprite, $precision) {
+  @if $precision {
+    width: math.div(nth($sprite, 3), $dpr);
+  } @else {
+    width: math.div((nth($sprite, 3) + 2px), $dpr);
+  }
+}
+
+@mixin sprite-height($sprite, $precision) {
+  @if $precision {
+    height: math.div(nth($sprite, 4), $dpr);
+  } @else {
+    height: math.div((nth($sprite, 4) + 2px), $dpr);
+  }
+}
+
+@mixin sprite-position($sprite, $precision) {
+  @if $precision {
+    background-position: math.div(strip-units(nth($sprite, 1)), strip-units(nth($sprite, 3) - $spriteWidth)) * 100% math.div(strip-units(nth($sprite, 2)), format-zero(strip-units(nth($sprite, 4) - $spriteHeight))) * 100%;
+  } @else {
+    background-position: math.div(strip-units(nth($sprite, 1)), strip-units(nth($sprite, 3) + 1 - $spriteWidth) ) * 100% math.div(strip-units(nth($sprite, 2)), format-zero(strip-units(nth($sprite, 4) + 1 - $spriteHeight))) * 100%;
+  }
+}
+
+@mixin sprite($sprite, $precision) {
+  @include sprite-position($sprite, $precision);
+  @include sprite-width($sprite, $precision);
+  @include sprite-height($sprite, $precision);
+}
+
+%common-sprite {
+  background-image: url('#{$spriteSrc}');
+  background-repeat: no-repeat;
+  background-size: math.div($spriteWidth, $dpr) math.div($spriteHeight, $dpr);
+  display: inline-block;
+}
+
+.icon-add {
+  @extend %common-sprite;
+  @include sprite($add, false);
+}
+
+.icon-browsing {
+  @extend %common-sprite;
+  @include sprite($browsing, false);
+}
+
+.icon-feedback {
+  @extend %common-sprite;
+  @include sprite($feedback, false);
+}
+
+.icon-message {
+  @extend %common-sprite;
+  @include sprite($message, false);
+}
+
+.icon-night {
+  @extend %common-sprite;
+  @include sprite($night, false);
+}
+
+.icon-praise {
+  @extend %common-sprite;
+  @include sprite($praise, false);
+}
+
+.icon-preference {
+  @extend %common-sprite;
+  @include sprite($preference, false);
+}
+
+.icon-radio-opacity {
+  @extend %common-sprite;
+  @include sprite($radio-opacity, false);
+}
+
+.icon-radio-selected {
+  @extend %common-sprite;
+  @include sprite($radio-selected, false);
+}
+
+.icon-radio-small-selected {
+  @extend %common-sprite;
+  @include sprite($radio-small-selected, false);
+}
+
+.icon-radio-small {
+  @extend %common-sprite;
+  @include sprite($radio-small, false);
+}
+
+.icon-radio {
+  @extend %common-sprite;
+  @include sprite($radio, false);
+}
+
+.icon-update {
+  @extend %common-sprite;
+  @include sprite($update, false);
+}

@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+$black: #000000;
+$white: #ffffff;
+
+/**
+* -------------------------------------------
+* 定义主题颜色theme-color颜色
+* -------------------------------------------
+*/
+
+$blue-summer: #0050D7;
+
+$blue: #226FF5;
+
+$blue-light: #6179F5;
+
+$blue-gradient-start: #49A0FE;
+
+$blue-gradient-end: #166FFF;
+
+$purple: #683DF5;
+
+$purple-gradient-start: #683DF5;
+
+$purple-gradient-end: #A35DFF;
+
+$purple-light: #D0C3FA;
+
+$red: #ED4448;
+
+$red-dark: #FF3F01;
+
+$red-light: #FF5852;
+
+$red-gradient-start: #FF760F;
+
+$red-gradient-end: #FD3A3A;
+
+$orange: #ff752d;
+
+$orange-pink: #FF5C2B;
+
+$orange-dark: #FF8647;
+
+$peach: #D73676;
+
+$orange-light: #FFF5F0;
+
+$yellow-gradient-start: #FFC32E;
+
+$yellow-gradient-end: #FDAF3A;
+
+$yellow-gold: #AF810A;
+
+$gold-dark: #AF810A;
+
+$gold-light: #FDD88F;
+
+$green: #19ea6a;
+
+$green-dark: #28C445;
+
+$white-simple: #DBDBDB;
+
+$white-light: #EEEEEE;
+
+$white-dark: #CCCCCC;
+
+$gray: #666666;
+
+$gray-dark: #333333;
+
+$gray-light: #999999;
+
+$input-disabled: #F5F5F7;
+
+$page-gray: #f4f4f4;
+
+$gray-disabled: #F7F7F7;
+
+$icon-light: #E0E0E0;
+
+$black-light-1: rgba(0, 0, 0, 0.1);
+
+$black-light-2: rgba(0, 0, 0, 0.2);
+
+$black-light-3: rgba(0, 0, 0, 0.3);
+
+$black-light-4: rgba(0, 0, 0, 0.4);
+
+$black-light-5: rgba(0, 0, 0, 0.5);
+
+$black-light-6: rgba(0, 0, 0, 0.6);
+
+$black-light-7: rgba(0, 0, 0, 0.7);
+
+$black-light-8: rgba(0, 0, 0, 0.8);
+
+$black-light-9: rgba(0, 0, 0, 0.9);
+
+$new-year-red: #FF5852;
+
+/**
+* -------------------------------------------
+* 定义字体大小 函数
+* -------------------------------------------
+*/
+
+@function fs($v) {
+    @return $v + px;
+}
+
+$fs16: 16px;
+$fs20: 20px;
+$fs22: 22px;
+$fs24: 24px;
+$fs26: 26px;
+$fs28: 28px;
+$fs30: 30px;
+$fs32: 32px;
+$fs34: 34px;
+$fs36: 36px;
+$fs38: 38px;
+$fs40: 40px;
+$fs42: 42px;
+$fs44: 44px;
+$fs46: 46px;
+$fs48: 48px;
+$fs50: 50px;
+$fs52: 52px;
+$fs54: 54px;
+$fs56: 56px;
+$fs58: 58px;
+$fs60: 60px;
+
+// 底部纯高度
+$tab-bar-default: 136px;
+// 底部导航高度
+$tab-bar-height: calc(136px + env(safe-area-inset-bottom));
+// 页面安全高度
+$screen-height: calc(100vh - 136px - env(safe-area-inset-bottom));
+// 安全距离
+$safe-height: env(safe-area-inset-bottom);
+// 底部按钮圆角
+$tab-bar-radius: 32px 32px 0 0;
+// 常用阴影
+$box-shadow-top: 0px -4px 8px rgba(0, 0, 0, 0.02);
+$box-shadow-bottom: 0px 4px 8px rgba(0, 0, 0, 0.02);
+
+// 一像素
+$one-px: 1px;
+
+// 图片减去安全距离高度
+$image-top-safe-height: calc(0px - 120px);
