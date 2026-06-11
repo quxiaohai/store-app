@@ -1,0 +1,239 @@
+@charset "UTF-8";
+@import "reset";
+@import "number";
+@import "./iconfont/icon";
+@import "static";
+@import "app";
+
+:root {
+    --tool-bar: 0.01px;
+}
+
+:root[data-applet="show"] {
+    --tool-bar: 90px;
+}
+
+html { // 100vw 750px
+    font-size: 13.3333333333vw;
+
+    &[data-applet="show"] {
+        body {
+            padding-top: 90px;
+        }
+    }
+}
+
+body {
+    -webkit-text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+
+    // 设置body颜色
+    &.gray {
+        background-color: $input-disabled;
+    }
+
+    &.black, &.theme-dark {
+        background-color: $black;
+    }
+}
+
+.scrolling {
+    @extend %scrolling;
+}
+
+.flex { //并排
+    @extend %flex;
+}
+
+.flex-center { //水平垂直居中
+    @extend %flex-center;
+}
+
+.flex-center-col { //上下排-垂直居中
+    @extend %flex-center-col;
+}
+
+.flex-left { //垂直居中-靠左
+    @extend %flex-left;
+}
+
+.flex-right { //垂直居中-靠右
+    @extend %flex-right;
+}
+
+.flex-top { //并排-靠上
+    @extend %flex-top;
+}
+
+.flex-bottom { //并排-靠下
+    @extend %flex-bottom;
+}
+
+.flex-between { //垂直居中-靠两边
+    @extend %flex-between;
+}
+
+.flex-col { // 上下排-靠左
+    @extend %flex-col;
+}
+
+.flex-between-top { //向上-靠两边
+    @extend %flex-between-top;
+}
+
+.flex-between-bottom { // 向下-靠两边
+    @extend %flex-between-bottom;
+}
+
+.flex-around { //垂直居中-靠两边留自身一半空间
+    @extend %flex-around;
+}
+
+.bd-b {
+    @extend %bd-b;
+}
+
+.bd-t {
+    @extend %bd-t;
+}
+
+.bd-l {
+    @extend %bd-l;
+}
+
+.bd-r {
+    @extend %bd-r;
+}
+
+.hide {
+    display: none;
+}
+
+// 全局图片阴影和边框
+._image {
+    box-shadow: inset 0 0 0 0.5px $white-light, 0 10px 10px -5px rgba(47, 65, 83, 0.2);
+    border-radius: 4px;
+}
+
+// 全局模块阴影
+._shadow {
+    box-shadow: 0 4px 10px -2px rgba($gray-dark, 0.2);
+}
+
+// 全局hover效果
+._hover {
+    background-color: $white-light !important;
+}
+
+// 全局Input颜色
+._placeholder {
+    color: $black;
+
+    &::placeholder {
+        color: rgba($black, 0.4);
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition-delay: 99999s;
+    transition: color 99999s ease-out, background-color 99999s ease-out;
+    -webkit-text-fill-color: $gray-dark;
+}
+
+// 给html，body，.content隐藏滚动条
+.hide-scroll-bar, body, html {
+    &::-webkit-scrollbar, ::-webkit-scrollbar {
+        width: 0 !important;
+        display: none;
+    }
+}
+
+html,
+body {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    touch-action: manipulation;
+}
+
+span, div, i, p, a, li {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.m-scroll-loading {
+    height: 47px;
+    width: 100%;
+
+    .text {
+        color: $gray-light;
+        font-size: 12px;
+        padding: 0 4.266%;
+    }
+
+    .line {
+        width: 14.5%;
+        height: 0;
+        background-color: rgba($black, 0.08);
+    }
+}
+
+.pull-down-text {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -50px;
+    font-size: 12px;
+    color: $gray;
+}
+
+// 使body不滚动
+.body-hidden, .popup-body-hidden {
+    overflow: hidden !important;
+}
+
+// 无数据
+.not-data {
+    padding: 72px 0 0;
+    width: 100%;
+
+    .info {
+        padding-top: 172px;
+    }
+}
+
+// pre换行
+.pre-br {
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+// 默认为空
+.default-empty {
+    .btn {
+        width: 210px;
+        height: 76px;
+
+        .nl-button-text {
+            font-size: $fs28;
+            font-weight: 500;
+        }
+    }
+}
+
+// input默认样式
+.default-input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    height: 48px;
+    line-height: 48px;
+}
