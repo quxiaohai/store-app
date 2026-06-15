@@ -1,5 +1,7 @@
 import {createSSRApp} from 'vue'
 import App from './App.vue'
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/reset.css';
 import globalProperties from 'common/util/global-properties';
 import previewMedia from 'common/plugin/preview-media';
 import href from 'common/directives/href';
@@ -15,6 +17,7 @@ export function _createApp({router, store}) {
     const app = createSSRApp(App);
     app.use(router)
         .use(store)
+        .use(Antd)
         .use(globalProperties)
         .use(previewMedia);
 

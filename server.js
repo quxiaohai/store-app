@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import express from 'express'
+import apiRouter from './server/routes/index.js'
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
@@ -22,6 +23,10 @@ const templateHtml = isProduction
 
 // Create http server
 const app = express()
+
+app.use(express.json({limit: '2mb'}))
+app.use(express.urlencoded({extended: true}))
+app.use('/api', apiRouter)
 
 // Add Vite or respective production middlewares
 /** @type {import('vite').ViteDevServer | undefined} */

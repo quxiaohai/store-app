@@ -11,10 +11,13 @@
     "preview": "cross-env NODE_ENV=production EXEC_ENV=prod node server"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^7.0.0",
+    "ant-design-vue": "^4.2.6",
     "async-validator": "^4.2.5",
     "common": "^0.2.5",
     "compression": "^1.8.1",
     "express": "^5.2.1",
+    "mysql2": "^3.22.5",
     "sirv": "^3.0.2",
     "vue": "^3.5.32",
     "vue-router": "^5.1.0",

@@ -74,7 +74,7 @@ export default defineConfig(({mode, isSsrBuild}) => {
                     rootValue: 24, // 设计稿宽度除以10，通常是750或者375
                     propList: ['*'], // 需要转换的属性，这里选择转换所有属性
                     unitPrecision: 5, // 转换后的rem单位保留几位小数
-                    selectorBlackList: ['._pc-', 'html'], // 要忽略的选择器
+                    selectorBlackList: ['._pc-', '.ant-', 'html'], // 要忽略的选择器
                     replace: true, // 转换后直接更换属性值
                     mediaQuery: false, // 是否转换媒体查询中的单位
                     minPixelValue: 0 // 设置要转换的最小单位
